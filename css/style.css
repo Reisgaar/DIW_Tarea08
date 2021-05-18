@@ -106,6 +106,7 @@ label {
 
 .datos label{
   display: block;
+  text-align: left;
   margin-top: 10px;
 }
 
