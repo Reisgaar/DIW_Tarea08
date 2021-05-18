@@ -93,7 +93,6 @@ label {
 /*Fieldset de datos personales*/
 
 .datos {
-  text-align: justify;
   margin: 15px 2%;
 }
 
@@ -106,7 +105,6 @@ label {
 
 .datos label{
   display: block;
-  text-align: left;
   margin-top: 10px;
 }
 
