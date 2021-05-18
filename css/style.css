@@ -68,8 +68,8 @@ label {
 }
 
 #ayuda p:first-child {
-  text-decoration: underline;
   font-weight: bold;
+  text-align: center;
 }
 
 #cerrarAyuda {
