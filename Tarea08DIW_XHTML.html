@@ -1,0 +1,164 @@
+<!DOCTYPE  html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8;" />
+    <title>DIW Tarea 08</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <script type="text/javascript" src="validar.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+    <div class="main">
+        <div class="titulo">
+            <h1>Inscripción a las X Jornadas Matemáticas</h1>
+            <p>Los campos señalados con <span class="asterisco">*</span> son obligatorios</p>
+            <p id="navTeclado" class="navTeclado">Mostrar ayuda de navegación accesible. (tecla esc)</p>
+            <p id="navTeclado2" class="navTeclado cerrado">Ocultar ayuda de navegación accesible. (tecla esc)</p>
+            <div id="ayuda" class="oculto">
+                <p>Navegación por teclado:</p>
+                <p>Siguiente: tab</p>
+                <p>Anterior: shift+tab</p>
+                <p>Navegar por selecciones: arriba/abajo</p>
+				<p>Selección de campo: ctrl + número</p>
+                <p id="chrome1">Escribir por voz el campo actual: F2</p>
+                <p>Seleccionar: espacio</p>
+                <p>Enviar formulario: intro</p>
+                <p id="cerrarAyuda">X</p>
+            </div>
+        </div>
+        <form id="formulario" method="post" action="confirmacion.html">
+            <div id="form">
+                <fieldset>
+                    <legend>Datos personales</legend>
+                    <div class="datos">
+                        <div class="nombre">
+                            <label for="nombre">Nombre<span class="asterisco">*</span> <sup class="supnum oculto"><span class="tecla">ctrl</span>+<span class="tecla">1</span></sup></label>
+                            <i class="oculto fa fa-microphone-slash" id="mic1"></i>
+                            <input type="text" name="nombre" id="nombre" />
+                        </div>
+                        <div class="apellidos">
+                            <label for="apellidos">Apellidos<span class="asterisco">*</span> <sup class="supnum oculto"><span class="tecla">ctrl</span>+<span class="tecla">2</span></sup></label>
+                            <i class="oculto fa fa-microphone-slash" id="mic2"></i>
+                            <input type="text" name="apellidos" id="apellidos"  />
+                        </div>
+                        <div class="email tooltip">
+                            <label for="email">Correo electrónico<span class="asterisco">*</span> <sup class="supnum oculto"><span class="tecla">ctrl</span>+<span class="tecla">3</span></sup></label>
+                            <i class="oculto fa fa-microphone-slash" id="mic3"></i>
+                            <input type="text" name="email" id="email"  />
+                            <span class="tooltiptext">Introduce un correo electrónico válido.</span>
+                        </div>
+                        <div class="telefono tooltip">
+                            <label for="telefono">Teléfono<span class="asterisco">*</span> <sup class="supnum oculto"><span class="tecla">ctrl</span>+<span class="tecla">4</span></sup></label>
+                            <i class="oculto fa fa-microphone-slash" id="mic4"></i>
+                            <input type="text" name="telefono" id="telefono"  />
+                            <span class="tooltiptext">Introduce un número de teléfono válido en formato de 9 digitos.</span>
+                        </div>
+                        <div class="foto tooltip">
+                            <label for="foto">Fotografía para la acreditación <sup class="supnum oculto"><span class="tecla">ctrl</span>+<span class="tecla">5</span></sup></label>
+                            <input type="file" id="foto" name="foto" accept="image/png, image/gif, image/jpeg" />
+                            <span class="tooltiptext">Selecciona tu foto para la acreditación. Procura que sea una foto de carnet en la que se te reconozca claramente.</span>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Perfil de participante</legend>
+                    <div class="perfil">
+                        <div class="interes">
+                            <label for="interes">¿Por qué está interesado en participar?<span class="asterisco">*</span> <sup class="supnum oculto"><span class="tecla">ctrl</span>+<span class="tecla">6</span></sup></label>
+                            <i class="oculto fa fa-microphone-slash" id="mic5"></i>
+                            <p id="ayudaSelect3" class="cerrado">Se pueden hacer varias inserciones por voz. Cada una se insertará a continuación del texto existente. Para borrar todo el texto, active el reconocimiento y diga "borrar".</p>
+                            <textarea name="interes" id="interes" rows="7" cols="30" ></textarea>
+                            <p>Longitud mínima 50 caracteres (<span id="intereslong">0</span>).</p>
+                        </div>
+                        <div class="profesion">
+                            <label for="profesion">Actividad profesional<span class="asterisco">*</span> <sup class="supnum oculto"><span class="tecla">ctrl</span>+<span class="tecla">7</span></sup></label>
+                            <p id="ayudaSelect" class="cerrado">Para seleccionar utiliza el cursor arriba/abajo. Puedes abrir el desplegable con el espacio. Una vez seleccionado pasa al siguiente campo con tab.</p>
+                            <select name="profesion" id="profesion" >
+                                <option value="Estudiante_de_bachillerato">Estudiante de bachillerato</option>
+                                <option value="Estudiante_universitario">Estudiante universitario</option>
+                                <option value="Profesor_de_bachillerato">Profesor de bachillerato</option>
+                                <option value="Profesor_universitario">Profesor universitario</option>
+                                <option value="Otra_actividad_profesional">Otra actividad profesional</option>
+                            </select>
+                        </div>
+                        <div class="talleres">
+                            <label for="talleres">¿En qué talleres está interesado?<span class="asterisco">*</span> <sup class="supnum oculto"><span class="tecla">ctrl</span>+<span class="tecla">8</span></sup></label>
+                            <p id="ayudaSelect1">Para seleccionar más de una opción, mantened pulsada la tecla Control (Windows) / Command (Mac) mientras haceis click a las opciones.</p>
+                            <p id="ayudaSelect2" class="cerrado">Para seleccionar más de una opción, manteniendo pulsada la tecla Control (Windows) / Command (Mac), navega con el cursor arriba/abajo y selecciona con espacio. Una vez seleccionado pasa al siguiente campo con tab.</p>
+                            <select name="talleres" id="talleres" size="7" multiple="multiple" >
+                                <option value="La_encriptación_a_lo_largo_de_la_historia">La encriptación a lo largo de la historia</option>
+                                <option value="Seguridad_informática">Seguridad informática</option>
+                                <option value="Redes_sociales_y_teoría_de_grafos">Redes sociales y teoría de grafos</option>
+                                <option value="Matemáticas_y_azar">Matemáticas y azar</option>
+                                <option value="Problemas_matemáticos_del_milenio">Problemas matemáticos del milenio</option>
+                                <option value="La_predicción_del_tiempo">La predicción del tiempo</option>
+                                <option value="Fractales_en_el_aula">Fractales en el aula</option>
+                            </select>
+                        </div>
+                        <div class="asistencia">
+                            <p>Seleccione una de las tres opciones siguientes:<span class="asterisco">*</span> <sup class="supnum oculto"><span class="tecla">ctrl</span>+<span class="tecla">9</span></sup></p>
+                            <div class="opcion">
+                                <input type="radio" id="d4y5" name="asistencia" value="Días_4_y_5_de_mayo" />
+                                <label for="d4y5">Asistiré los días 4 y 5 de mayo</label>
+                            </div>
+                            <div class="opcion">
+                                <input type="radio" id="d4" name="asistencia" value="Día_4_de_mayo" />
+                                <label for="d4">Asistiré solo el día 4 de mayo</label>
+                            </div>
+                            <div class="opcion">
+                                <input type="radio" id="d5" name="asistencia" value="Día_5_de_mayo" />
+                                <label for="d5">Asistiré solo el día 5 de mayo</label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="legal">
+                    <input type="checkbox" id="legal" name="legal" value="legal" />
+                    <label for="legal">He leído y acepto la <a href="https://es.wikipedia.org/wiki/Pol%C3%ADtica_de_privacidad" target="_blank">política de privacidad</a> y el <a href="https://es.wikipedia.org/wiki/Aviso_legal" target="_blank">aviso legal</a><span class="asterisco">*</span> <sup class="supnum oculto"><span class="tecla">ctrl</span>+<span class="tecla">0</span></sup></label>
+                </div>   
+                <div class="submit">
+                    <input type="submit" id="submit" value="Enviar" />
+                    <sup class="supnum btn oculto"><span class="tecla">intro</span></sup>
+                </div>
+            </div>
+
+
+            <div id="conf" class="conf">
+                <h2>Confirma que tus datos son correctos:</h2>
+                <ul>
+                    <li>Nombre: <span id="conf1"></span></li>
+                    <li>Apellidos: <span id="conf2"></span></li>
+                    <li>Correo electrónico: <span id="conf3"></span></li>
+                    <li>Teléfono: <span id="conf4"></span></li>
+                    <li>Interés en participar: <span id="conf5"></span></li>
+                    <li>Actividad profesional: <span id="conf6"></span></li>
+                    <li>Talleres que te interesan: <span id="conf7"></span>.</li>
+                    <li>Asistencia: <span id="conf8"></span></li>
+                </ul>
+                <div class="submit">
+                    <div>
+                        <input type="button" id="volver" value="Volver" />
+                        <sup class="supnum btn oculto"><span class="tecla">ctrl</span>+<span class="tecla">backspace</span></sup>
+                    </div>
+                    <div>
+                        <input type="submit" id="submit2" value="Enviar" />
+                        <sup class="supnum btn oculto"><span class="tecla">intro</span></sup>
+                    </div>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+    <p class="validaciones">
+        <a href="http://validator.w3.org/check?uri=referer">
+            <img src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Transitional" height="31" width="88" />
+        </a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer">
+            <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="¡CSS Válido!" />
+        </a>
+    </p>
+</body>
+</html>    

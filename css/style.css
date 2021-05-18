@@ -1,0 +1,464 @@
+/*CSS general*/
+body {
+  min-width: 300px;
+  font-family: Verdana;
+  color: purple;
+}
+
+.titulo {
+  text-align: center;
+  width: 90%;
+  margin: auto;
+}
+
+.main {
+  max-width: 900px;
+  margin: auto;
+}
+
+fieldset {
+  width: 90%;
+  margin: 25px auto 30px;
+  border: 2px solid;
+  border-radius: 3px;
+}
+
+legend {
+  font-size: 1.3em;
+  font-weight: bold;
+  border: 2px solid purple;
+  border-radius: 3px;
+  padding: 5px;
+  background-color: white;
+}
+
+label {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+#conf {
+  display: none;
+}
+
+.asterisco {
+  color: red;
+  font-weight: bold;
+}
+
+.navTeclado {
+  text-align: right;
+  font-size: 0.8em;
+  cursor: pointer;
+}
+
+#ayuda {
+  position: fixed;
+  background-color: #eaeaea;
+  border: 3px solid purple;
+  border-radius: 10px;
+  color: black;
+  width: 230px;
+  cursor: move;
+  text-align: left;
+  font-size: 0.7em;
+  z-index: 5;
+  right: 1%;
+  padding-left: 3px;
+}
+
+#ayuda p:first-child {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+#cerrarAyuda {
+  position: absolute;
+  top: -3%;
+  right: 5%;
+  font-size: 1.3em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.oculto {
+  visibility: hidden;
+}
+
+.cerrado {
+  display: none;
+}
+
+
+/*Fieldset de datos personales*/
+
+.datos {
+  text-align: justify;
+  margin: 15px 2%;
+}
+
+.datos input{
+  color: purple;
+  height: 40px;
+  width: 100%;
+  font-size: 0.9em;
+}
+
+.datos label{
+  display: block;
+  margin-top: 10px;
+}
+
+.datos div {
+  position: relative;
+  width: 45%;
+  margin: 10px 1%;
+  display: inline-block;
+}
+
+.datos div:last-child {
+  width: 98%;
+  margin: 0 1% 10px;
+}
+
+.datos div:last-child label {
+  margin: 20px 0 10px;
+}
+
+.datos div:last-child input {
+  width: 100%;
+  padding: 10px 0 0 1%;
+  border: 1px solid #757575;
+  border-radius: 2px;
+  background-color: white;
+}
+
+
+/*Fieldset de perfil de participante*/
+.perfil {
+  margin: 15px 2%;
+}
+
+.perfil label {
+  display: block;
+  margin-top: 30px;
+  margin-right: 40px;
+}
+
+.perfil div {
+  margin: 15px 0;
+}
+
+.interes {
+  position: relative;
+}
+
+.interes p {
+  font-size: 0.8em;
+  margin: 3px 0 10px;
+  text-align: left;
+  color: purple;
+}
+
+.interes p:last-child {
+  font-size: 0.8em;
+  text-align: right;
+  margin: 0px 2px;
+  color: crimson;
+}
+
+.interes textarea {
+  color: purple;
+  width: 99%;
+  resize: vertical;
+  font-size: 1.3em;
+  line-height: 1.3em;
+}
+
+#profesion {
+  padding: 8px;
+  font-size: 0.9em;
+  color: purple;
+}
+
+.talleres p, .profesion p {
+  font-size: 0.8em;
+  margin: 3px 0 10px;
+}
+
+#talleres {
+  padding: 5px;
+  overflow: hidden;
+  font-size: 0.9em;
+  color: purple;
+}
+
+#talleres option {
+  padding: 5px;
+}
+
+.asistencia p {
+  font-size: 1.1em;
+  margin: 30px 0 10px;
+}
+
+.asistencia label {
+  display: unset;
+  cursor: pointer;
+}
+
+.opcion {
+  margin: 5px 0 !important;
+}
+
+.opcion label {
+  font-size: 0.9em;
+  margin: 0;
+}
+
+/*aviso legal y boton enviar*/
+
+.legal, .submit {
+  text-align: center;
+  margin: 0 0 30px;
+}
+
+#legal {
+  height: 20px;
+  width: 20px;
+  transform: translateY(3px);
+}
+
+.submit input {
+  font-size: 1.1em;
+  text-transform: uppercase;
+  padding: 16px 25px;
+  background-color: gold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 30px;
+}
+
+.submit div {
+  display: inline-block;
+}
+
+
+/* Interactividad */
+
+input:focus, textarea:focus, select:focus {
+  background-color: #f1f1f1 !important;
+}
+
+fieldset:hover {
+  background-color: lavender;
+}
+
+fieldset:hover legend {
+  background-color: lavenderblush;
+}
+
+.submit input:hover {
+  background-color: black;
+  color: gold;
+  border: 2px solid gold;
+  font-weight: bold;
+  padding: 14px 22.5px;
+}
+
+.submit input:focus {
+  border: 2px solid ;
+  background-color: gold !important;
+  padding: 14px 22.5px;
+}
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip .tooltiptext {
+  position: absolute;
+  visibility: hidden;
+  width: 100%;
+  background-color: #555;
+  color: #fff;
+  font-size: 0.8em;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 5px;
+  z-index: 1;
+  top: 105%;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #555 transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 0.9;
+}
+
+.tooltip:active .tooltiptext {
+  visibility: visible;
+  opacity: 0.9;
+}
+
+.supnum {
+  color:black;
+  font-size: 0.7em;
+}
+
+.supnum.btn {    
+  display: block;
+  margin: 10px;
+}
+
+.tecla {
+  border: 1px solid black;
+  padding: 1px 5px; 
+}
+
+.teclaMic {
+  font-family: Verdana;
+  font-size: 0.7em;
+  margin-left: 5px;
+}
+
+#legal, #d4y5, #d4, #d5, #profesion, #talleres {
+  cursor: pointer;
+}
+
+#talleres option:hover {
+  background-color: lightgrey;
+}
+
+.asistencia input:hover + label{
+  text-decoration: underline;
+}
+
+.asistencia input:focus + label{
+  text-decoration: underline;
+}
+
+.asistencia label:hover {
+  text-decoration: underline;
+}
+
+#mic1, #mic2, #mic3, #mic4 {
+  position: absolute;
+  font-size: 1.7em;
+  cursor: pointer;
+  right: 0;
+  bottom: 9%;
+}
+
+#mic5 {
+  position: absolute;
+  font-size: 1.7em;
+  cursor: pointer;
+  right: 0;
+  top: 0;
+}
+
+.fa-microphone-slash {
+  color: red;
+}
+
+.fa-microphone {
+  color: green;
+}
+
+.grabando::after {
+  content: "";
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  left: 100%;
+  bottom: 100%;
+  background-color: red;
+  border-radius: 50px;
+  animation: blink 0.8s linear infinite;
+}
+
+@keyframes blink{
+  0%{opacity: 1;}
+  50%{opacity: 1;}
+  51%{opacity: 0;}
+  100%{opacity: 0;}
+  }
+
+/* Confirmación */
+
+.conf {
+  max-width: 600px;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 50px auto;
+}
+
+.conf h2 {
+  text-align: center;
+  background-color: black;
+  color: white;
+  border-radius: 9px 9px 0 0;
+  margin: -2px;
+  padding: 12px 0;
+}
+
+.conf ul {
+  line-height: 2em;
+}
+
+.conf li {
+  line-height: 1.3em;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.conf li span {
+  font-weight: normal;
+  color: black;
+  overflow-wrap: break-word;
+}
+
+#volver {
+  margin-top: 15px;
+}
+
+
+/* Validaciones */
+
+.validaciones {
+  display: flex;
+}
+
+.validaciones a {
+  margin: 0 5px;
+}
+
+/* Enviado */
+
+.formenviado {
+  text-align: center;
+  color: green;
+  margin-top: 50px;
+}
+
+/* Responsive */
+
+@media (max-width: 480px) {
+  .datos div {
+    width: 97%;
+  }
+}
