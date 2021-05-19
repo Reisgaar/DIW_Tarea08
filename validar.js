@@ -302,7 +302,7 @@ function abrirAyuda(){
 
     document.getElementById("ayuda").style.right = "1%";
     document.getElementById("ayuda").style.left = "unset";
-    document.getElementById("ayuda").style.top = "unset";
+    document.getElementById("ayuda").style.top = "5%";
 
     let sups = document.getElementsByClassName("supnum");
     for (let i = 0; i < sups.length; i++) {
