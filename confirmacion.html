@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8;" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>Enciclopedia de Front-End</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<script type="text/javascript" src="validar.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	</head>
+
+	<body>
+		<div class="fondoheader">
+			<div class="header">
+				<a href="index.html" class="header__a bb">
+					<img src="images/logoBlanco.svg" alt="Logo de la web" class="header__img"/>
+				</a>
+				<h1 class="header__h1">Enciclopedia de Front-End</h1>
+				<div class="header__lang">
+					<a href="#" onclick="langselection('ES')" id="ES" class="header__lang__a selected">ES</a>
+					<span>|</span>
+					<a href="#" onclick="langselection('EN')" id="EN" class="header__lang__a idioma">EN</a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="nav">
+			<ul class="navlist">
+				<li class="navlist__li navlist--vertical">
+					<a href="index.html" class="navlist__li__a navlist--blanco" id="menu1" onclick="menuselection('menu1')">Module-Bundlers</a>
+				</li>
+				<li class="navlist__li navlist--vertical">
+					<a href="LenguajesFrontEnd.html" class="navlist__li__a navlist--blanco" id="menu2" onclick="menuselection('menu2')">Lenguajes Front-End</a>
+				</li>
+				<li class="navlist__li navlist--vertical">
+					<a href="Jornadas.html" class="navlist__li__a navlist--blanco" id="menu3" onclick="menuselection('menu3')">Jornadas Matemáticas</a>
+				</li>
+			</ul>
+		</div>
+
+
+		<div class="tarea08">
+            <div class="main">
+				<div>
+					<img src="images/mates.jpg" alt="Una persona enfrente de un ordenador" class="main__img"/>
+				</div>
+                <div class="titulo">
+                    <h1>Inscripción a las X Jornadas Matemáticas</h1>
+                </div>
+                <h2 class="formenviado">La inscripción se ha realizado correctamente.</h2>
+            </div>
+        </div>
+
+		
+		<div class="footer"> 
+			<a href="index.html">
+				<img src="images/logoNegro.svg" alt="Logo de la web" class="footer__img"/>
+			</a>
+			<h3>Enciclopedia de Front-End</h3>
+			<div class="footer__address">
+				<p>Calle Cantones 5. 31243 Estella</p>
+				<p>Tel. 948 22 65 36</p>
+				<p>info@enciclopediafrontend.org</p>
+			</div>
+			<!--Cada opción es un hiperenlace cuyo color de fondo cambia al pasar el ratón por encima (LIBRE EL COLOR)-->
+			<ul class="navlist">
+				<li class="navlist__li">
+					<a href="https://twitter.com/" class="navlist__li__a navlist--rrss">
+						<img src="images/twitter.png" alt="Logo de Twitter" class="logo"/>
+					</a>
+				</li>
+				<li class="navlist__li">
+					<a href="https://www.facebook.com/" class="navlist__li__a navlist--rrss">
+						<img src="images/facebook.png" alt="Logo de Facebook" class="logo"/>
+					</a>
+				</li>
+				<li class="navlist__li">
+					<a href="https://www.instagram.com/" class="navlist__li__a navlist--rrss">
+						<img src="images/instagram.png" alt="Logo de Instagram" class="logo"/>
+					</a>
+				</li>
+				<li class="navlist__li">
+					<a href="https://www.youtube.com/" class="navlist__li__a navlist--rrss">
+						<img src="images/youtube.png" alt="Logo de YouTube" class="logo"/>
+					</a>
+				</li>
+			</ul>
+			<ul class="navlist">
+				<li class="navlist__li">
+					<a href="#" class="navlist__li__a navlist--negro">Quiénes somos</a>
+				</li>
+				<li class="navlist__li">
+					<a href="#" class="navlist__li__a navlist--negro">Política de privacidad</a>
+				</li>
+				<li class="navlist__li">
+					<a href="#" class="navlist__li__a navlist--negro">Aviso legal</a>
+				</li>
+				<li class="navlist__li">
+					<a href="#" class="navlist__li__a navlist--negro">Cookies</a>
+				</li>
+			</ul>
+
+			<p>Actividad realizada por Asier García Aristu, para la asignatura Diseño de Interfaces WEB . Curso 2020-2021</p>
+		</div>
+		
+
+		<script type="text/javascript">
+			function menuselection(item) {
+				document.getElementById('menu1').classList.remove('selected');
+				document.getElementById('menu2').classList.remove('selected');
+				document.getElementById('menu3').classList.remove('selected');
+				document.getElementById(item).classList.add('selected');
+			}
+
+			function langselection(lang) {
+				document.getElementById('ES').classList.remove('selected');
+				document.getElementById('EN').classList.remove('selected');
+				document.getElementById(lang).classList.add('selected');
+			}
+		</script>
+	</body>
+</html>

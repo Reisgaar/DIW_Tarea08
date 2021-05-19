@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Enciclopedia de Front-End</title>
+		<link rel="shortcut icon" type="image/jpg" href="images/favicon.png"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+
+	<body>
+		<div class="fondoheader">
+			<div class="header">
+				<a href="index.html" class="header__a">
+					<img src="images/logoBlanco.svg" alt="Logo de la web, con el texto the coding moustache, y un símbolo de llave girado que parece un bigote" class="header__img"/>
+				</a>
+				<h1 class="header__h1">Enciclopedia de Front-End</h1>
+				<div class="header__lang">
+					<a href="#" onclick="langselection('ES')" id="ES" class="header__lang__a selected">ES</a>
+					<span>|</span>
+					<a href="#" onclick="langselection('EN')" id="EN" class="header__lang__a idioma">EN</a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="nav">
+			<ul class="navlist">
+				<li class="navlist__li navlist--vertical">
+					<a href="index.html" class="navlist__li__a navlist--blanco" id="menu1" onclick="menuselection('menu1')">Module-Bundlers</a>
+				</li>
+				<li class="navlist__li navlist--vertical">
+					<a class="navlist__li__a navlist--blanco selected" id="menu2" onclick="menuselection('menu2')">Lenguajes Front-End</a>
+				</li>
+				<li class="navlist__li navlist--vertical">
+					<a href="Jornadas.html" class="navlist__li__a navlist--blanco" id="menu3" onclick="menuselection('menu3')">Jornadas Matemáticas</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="destacado">
+			<div class="animacion">
+				<div class="pantallanegra" id="pantallanegra"></div>
+				<div class="animacion__1 encender" id="pantallabloqueo">
+					<div class="animacion__1__pantalla">
+						<p class="aparecetexto">DIW</p>
+						<p class="aparecetexto">Tarea 05</p>
+						<p class="aparecetexto">Marzo 2021</p>
+						<p class="aparecetexto">----------</p>
+						<p class="aparecetexto">Asier García</p>
+						<p class="aparecetexto">----------</p>
+						<div class="divbtn aparecetexto">
+							<input type="button" value="Desbloquear" onclick="desbloquear('pantallabloqueo');">
+						</div>
+						<p class="aparecetexto">click to unlock</p>
+					</div>
+				</div>
+				<div class="mano">
+					<img src="images/mano.png" alt="mano con el indice extendido." class="mano__img animarmano"/>
+				</div>
+				<picture>
+					<!-- imagen diferentes anchos para móvil -->
+					<source srcset="images/design_mobile300.jpg" media="(min-width: 0px) and (max-width: 19.18em)">
+					<source srcset="images/design_mobile385.jpg" media="(min-width: 19.18px) and (max-width: 24.55em)">
+					<source srcset="images/design_mobile480.jpg" media="(min-width: 24.55px) and (max-width: 30em)">
+					<!-- imagen diferentes anchos para desktop y tablet -->
+					<source srcset="images/design_pan530.jpg" media="(min-width: 30em) and (max-width: 33.81em)">
+					<source srcset="images/design_pan665.jpg" media="(min-width: 33.81em) and (max-width: 42.43em)">
+					<source srcset="images/design_pan830.jpg" media="(min-width: 42.43em) and (max-width: 51.88em)">
+					<source srcset="images/design_pan830.jpg" media="(min-width: 51.89px) and (max-width: 52.93em)">
+					<source srcset="images/design_pan960.jpg" media="(min-width: 52.93em) and (max-width: 61.24em)">
+					<source srcset="images/design_pan1200.jpg" media="(min-width: 61.24em)">
+					<img src="images/design_pan.jpg" alt="Bocetos de diseño de una aplicación con un móvil encendido encima." class="destacado__img"/>
+				</picture>
+			</div>
+			<h1>Las bases del frontend</h1>
+			<p>A pesar de que hay varios lenguajes que se usan en el frontend, nosotros no fijaremos en tres elementos: HTML, CSS y JavaScript (aunque HTML y CSS no son lenguajes de programación propiamente dichos).</p>
+		</div>
+		
+		<div class="contenido">
+			<div class="contenido__bloque">
+				<a href="images/code.jpg" target="blank">
+					<img srcset="images/code385.jpg 1200w,
+								images/code300.jpg 1020w,
+								images/code385.jpg 830w,
+								images/code300.jpg 680w,
+								images/code240.jpg 544w,
+								images/code480.jpg 480w,
+								images/code385.jpg 413w,
+								images/code300.jpg 322w"
+						sizes="(min-width: 30em) 100vw" 
+						src="images/code.jpg"
+						alt="Líneas de código en una pantalla de ordenador." class="contenido__bloque__img"/>
+				</a>
+				<p class="contenido__bloque__texto">Código en un JPG</p>
+			</div>					 
+			<div class="contenido__bloque">
+				<a href="images/element.png" target="blank">
+					<img srcset="images/element385.png 1200w,
+								images/element300.png 1020w,
+								images/element385.png 830w,
+								images/element300.png 680w,
+								images/element240.png 544w,
+								images/element480.png 480w,
+								images/element385.png 413w,
+								images/element300.png 322w"
+						sizes="(min-width: 30em) 100vw" 
+						src="images/element.png" 
+						alt="Dibujo de un ordenador con un tag de elemento en su interior, con fondo de dos colores." class="contenido__bloque__img"/>
+					</a>
+				<p class="contenido__bloque__texto">Tag dibujado en un PNG</p>
+			</div>
+			<div class="contenido__bloque">
+				<a href="images/javascript.gif" target="blank">
+					<img srcset="images/javascript385.gif 1200w,
+								images/javascript300.gif 1020w,
+								images/javascript385.gif 830w,
+								images/javascript300.gif 680w,
+								images/javascript240.gif 544w,
+								images/javascript480.gif 480w,
+								images/javascript385.gif 413w,
+								images/javascript300.gif 322w"
+						sizes="(min-width: 30em) 100vw" 
+						src="images/javascript.gif" 
+						alt="Imagen de un escritorio en la que van apareciendo fichas que forman la palabra javascript." class="contenido__bloque__img"/>
+				</a>
+				<p class="contenido__bloque__texto">JavaScript en un GIF</p>
+			</div>
+		</div>
+
+		<div class="separador"></div>
+		
+		<div class="destacado">
+			<h2 class="destacado__titulo">¿Pero... por dónde empiezo?</h2>
+			<picture>
+				<!-- imagen diferentes anchos para móvil -->
+				<source srcset="images/lego_mobile300.jpg" media="(min-width: 0px) and (max-width: 19.18em)">
+				<source srcset="images/lego_mobile385.jpg" media="(min-width: 19.18px) and (max-width: 24.55em)">
+				<source srcset="images/lego_mobile480.jpg" media="(min-width: 24.55px) and (max-width: 30em)">
+				<!-- imagen diferentes anchos para tablet -->
+				<source srcset="images/lego_tablet530.jpg" media="(min-width: 30em) and (max-width: 33.81em)">
+				<source srcset="images/lego_tablet665.jpg" media="(min-width: 33.81em) and (max-width: 42.43em)">
+				<source srcset="images/lego_tablet830.jpg" media="(min-width: 42.43em) and (max-width: 51.88em)">
+				<!-- imagen diferentes anchos para desktop -->
+				<source srcset="images/lego_desktop830.jpg" media="(min-width: 51.89px) and (max-width: 52.93em)">
+				<source srcset="images/lego_desktop960.jpg" media="(min-width: 52.93em) and (max-width: 61.24em)">
+				<source srcset="images/lego_desktop1200.jpg" media="(min-width: 61.24em)">
+				<!-- elemento img -->
+				<img src="images/lego.jpg" alt="Un muñeco de lego con cara de preocupación sentado en un escritorio con un ordenador." class="destacado__img"/>
+			</picture>
+		</div>
+
+		<div class="contenido">
+			<h2>Descubre qué conoces y qué te falta por aprender.</h2>
+			<div class="d6" id="dado">
+				<div class="rotardado">
+					<div class="cara1" onclick="cambiar('html', 'css', 'js')"></div>
+					<div class="cara2" onclick="cambiar('css', 'html', 'js')"></div>
+					<div class="cara3" onclick="cambiar('js', 'html', 'css')"></div>
+					<div class="cara4" onclick="cambiar('js', 'html', 'css')"></div>
+					<div class="cara5" onclick="cambiar('css', 'html', 'js')"></div>
+					<div class="cara6" onclick="cambiar('html', 'css', 'js')"></div>
+				</div>
+			</div>
+			<div class="btnanimacion">
+				<input type="button" value="Quitar animación" id="animacionon" onclick="animacion();">
+				<input type="button" value="Activar animación" id="animacionoff" class="cerrado" onclick="animacion();">
+			</div>
+			<div class="nodado cerrado" id="nodado">
+				<div class="lenguajes" onclick="cambiar('html', 'css', 'js')"><img src="images/HTML.png" alt="Logo de HTML." class="lenguajes__img"/></div>
+				<div class="lenguajes" onclick="cambiar('css', 'html', 'js')"><img src="images/CSS.png" alt="Logo de CSS." class="lenguajes__img"/></div>
+				<div class="lenguajes" onclick="cambiar('js', 'html', 'css')"><img src="images/JS.png" alt="Logo de JavaScript." class="lenguajes__img"/></div>
+			</div>
+			<div class="contenido__tarjeta" id="tarjetainicial">
+				<p id="pdado">Selecciona en el dado la opción de la que quieras más información.</p>
+				<p class="cerrado" id="pnodado">Selecciona la opción de la que quieras más información.</p>
+			</div>
+			<div class="contenido__tarjeta cerrado" id="html">
+				<h3 class="contenido__tarjeta--titulo">¿Qué es HTML?</h3>
+				<p class="contenido__tarjeta--descripcion">HTML, siglas en inglés de HyperText Markup Language (‘lenguaje de marcas de hipertexto’), hace referencia al lenguaje de marcado para la elaboración de páginas web. Es un estándar que sirve de referencia del software que conecta con la elaboración de páginas web en sus diferentes versiones, define una estructura básica y un código (denominado código HTML) para la definición de contenido de una página web, como texto, imágenes, videos, juegos, entre otros.</p>
+				<a href="https://www.w3schools.com/html/default.asp" target="blank"><p class="contenido__tarjeta--link">¡Empieza con HTML!</p></a>
+			</div>
+			<div class="contenido__tarjeta cerrado" id="css">
+				<h3 class="contenido__tarjeta--titulo">¿Qué es CSS?</h3>
+				<p class="contenido__tarjeta--descripcion">CSS (siglas en inglés de Cascading Style Sheets), en español «Hojas de estilo en cascada», es un lenguaje de diseño gráfico para definir y crear la presentación de un documento estructurado escrito en un lenguaje de marcado.​ Es muy usado para establecer el diseño visual de los documentos web, e interfaces de usuario escritas en HTML o XHTML; el lenguaje puede ser aplicado a cualquier documento XML, incluyendo XHTML, SVG, XUL, RSS, etcétera. </p>
+				<a href="https://www.w3schools.com/css/default.asp" target="blank"><p class="contenido__tarjeta--link">¡Empieza con CSS!</p></a>
+			</div>
+			<div class="contenido__tarjeta cerrado" id="js">
+				<h3 class="contenido__tarjeta--titulo">¿Qué es JavaScript?</h3>
+				<p class="contenido__tarjeta--descripcion">JavaScript es un lenguaje de programación interpretado, dialecto del estándar ECMAScript. Se define como orientado a objetos,​ basado en prototipos, imperativo, débilmente tipado y dinámico. Se utiliza principalmente del lado del cliente, implementado como parte de un navegador web permitiendo mejoras en la interfaz de usuario y páginas web dinámicas​ y JavaScript del lado del servidor (Server-side JavaScript o SSJS).</p>
+				<a href="https://www.w3schools.com/js/default.asp" target="blank"><p class="contenido__tarjeta--link">¡Empieza con JavaScript!</p></a>
+			</div>
+		</div>
+
+		<div class="footer"> 
+			<a href="index.html">
+				<img src="images/logoNegro.svg" alt="Logo de la web" class="footer__img"/>
+			</a>
+			<h3>Enciclopedia de Front-End</h3>
+			<div class="footer__address">
+				<p>Calle Cantones 5. 31243 Estella</p>
+				<p>Tel. 948 22 65 36</p>
+				<p>info@enciclopediafrontend.org</p>
+			</div>
+			
+			<ul class="navlist">
+				<li class="navlist__li">
+					<a href="https://twitter.com/" class="navlist__li__a navlist--rrss" target="_blank">
+						<img src="images/twitter.png" alt="Logo de Twitter" class="logo"/>
+					</a>
+				</li>
+				<li class="navlist__li">
+					<a href="https://www.facebook.com/" class="navlist__li__a navlist--rrss" target="_blank">
+						<img src="images/facebook.png" alt="Logo de Facebook" class="logo"/>
+					</a>
+				</li>
+				<li class="navlist__li">
+					<a href="https://www.instagram.com/" class="navlist__li__a navlist--rrss" target="_blank">
+						<img src="images/instagram.png" alt="Logo de Instagram" class="logo"/>
+					</a>
+				</li>
+				<li class="navlist__li">
+					<a href="https://www.youtube.com/" class="navlist__li__a navlist--rrss" target="_blank">
+						<img src="images/youtube.png" alt="Logo de YouTube" class="logo"/>
+					</a>
+				</li>
+			</ul>
+			<ul class="navlist">
+				<li class="navlist__li">
+					<a href="#" class="navlist__li__a navlist--negro">Quiénes somos</a>
+				</li>
+				<li class="navlist__li">
+					<a href="#" class="navlist__li__a navlist--negro">Política de privacidad</a>
+				</li>
+				<li class="navlist__li">
+					<a href="#" class="navlist__li__a navlist--negro">Aviso legal</a>
+				</li>
+				<li class="navlist__li">
+					<a href="#" class="navlist__li__a navlist--negro">Cookies</a>
+				</li>
+			</ul>
+
+			<p>Actividad realizada por Asier García Aristu, para la asignatura Diseño de Interfaces WEB . Curso 2020-2021</p>
+		</div>
+		
+
+		<script>
+			function menuselection(item) {
+				document.getElementById('menu1').classList.remove('selected');
+				document.getElementById('menu2').classList.remove('selected');
+				document.getElementById('menu3').classList.remove('selected');
+				document.getElementById(item).classList.add('selected');
+			}
+
+			function langselection(lang) {
+				document.getElementById('ES').classList.remove('selected');
+				document.getElementById('EN').classList.remove('selected');
+				document.getElementById(lang).classList.add('selected');
+			}
+
+			function desbloquear(elemento) {
+				document.getElementById(elemento).classList.add('quitarpantalla');
+				document.getElementById('pantallanegra').classList.add('cerrado');
+				setTimeout(
+					function() {
+						document.getElementById(elemento).classList.add('cerrado');
+					}, 2000);
+			}
+
+			function cambiar(elemento1, elemento2, elemento3) {
+				document.getElementById('tarjetainicial').classList.add('cerrado');
+				document.getElementById(elemento1).classList.add('cerrado');
+				document.getElementById(elemento2).classList.add('cerrado');
+				document.getElementById(elemento3).classList.add('cerrado');
+				document.getElementById(elemento1).classList.remove('cerrado');
+			}
+
+			function animacion() {
+				if(document.getElementById("dado").classList.contains('cerrado')) {
+					document.getElementById("dado").classList.remove('cerrado');
+					document.getElementById("nodado").classList.add('cerrado');
+					document.getElementById("pdado").classList.remove('cerrado');
+					document.getElementById("pnodado").classList.add('cerrado');
+					document.getElementById("animacionon").classList.remove('cerrado');
+					document.getElementById("animacionoff").classList.add('cerrado');
+				}
+				else {
+					document.getElementById("dado").classList.add('cerrado');
+					document.getElementById("nodado").classList.remove('cerrado');
+					document.getElementById("pdado").classList.add('cerrado');
+					document.getElementById("pnodado").classList.remove('cerrado');
+					document.getElementById("animacionoff").classList.remove('cerrado');
+					document.getElementById("animacionon").classList.add('cerrado');
+				}
+			}
+
+			/* 
+			 *  Como me daba problemas IE, y otros navegadores no sé si soportan bien el 3d del dado
+			 *  he creado una función que detecta que navegador es, y solo se mostrará el dado si el
+			 *  navegador es chrome o firefox
+			 */
+			function checkBrowser() { 
+				// Get the user-agent string 
+				let userAgentString = navigator.userAgent;				
+				// Detecta el navegador guardando true o false en cada uno 
+				let chromeAgent =  userAgentString.indexOf("Chrome") > -1; 
+				let firefoxAgent =  userAgentString.indexOf("Firefox") > -1;
+				let IExplorerAgent = userAgentString.indexOf("MSIE") > -1 || userAgentString.indexOf("rv:") > -1;
+				let safariAgent = userAgentString.indexOf("Safari") > -1;
+				
+				if (!chromeAgent && !firefoxAgent && !safariAgent) {
+					document.getElementById("dado").classList.add('cerrado');
+					document.getElementById("nodado").classList.remove('cerrado');
+					document.getElementById("pdado").classList.add('cerrado');
+					document.getElementById("pnodado").classList.remove('cerrado');
+					document.getElementById("animacionon").classList.add('cerrado');
+					document.getElementById("animacionoff").classList.add('cerrado');
+				}
+			}
+
+			window.onload = checkBrowser;
+
+		</script>
+	</body>
+</html>
