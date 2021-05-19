@@ -1144,7 +1144,7 @@ fieldset:hover legend, fieldset:focus-within legend {
   max-width: 600px;
   border: 2px solid black;
   border-radius: 10px;
-  margin: 50px auto;
+  margin: 90px auto 20px;
 }
 
 .conf h2 {
