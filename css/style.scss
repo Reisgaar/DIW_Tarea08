@@ -1,0 +1,1337 @@
+/*
+	Para crear el css, en command line
+		- ubicar en la carpeta
+		- sass nombrearchivo.scss nombrearchivo.css
+			p.e.: sass style.scss style.css
+	
+		- para extended (por defecto) o compressed
+			sass --style=compressed nombrearchivo.scss nombrearchivo.css
+			* se suele nombrar el archivo nombrearchivo.min.css
+
+	Para que vaya actualizando solo
+		- sass --watch nombrearchivo.scss nombrearchivo.css
+
+	Flags de compilación
+		--no-source-map
+		--stop-on-error
+		--embred-source-map
+		--help
+		--quiet
+		--color / --no-color
+		--trace
+*/
+
+/*
+	Diseño de Aplicaciones web - Tarea 04
+
+	Asier García Aristu
+*/
+
+// Variables de colores
+$negro: black;
+$blanco: white;
+$rojoclaro: rgba(255, 80, 80, 0.1);
+$borderojo: 2px solid red;
+$grisoscuro: rgb(31, 31, 31);
+$alpha: rgba(0,0,0,0);
+
+// @mixin para hacer @include en los elementos centrados
+@mixin centrado {
+	margin: auto;
+}
+
+@mixin caradado {
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position-x: center;
+	border: 3px solid black;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+// Tamaños para las imágenes
+$images : (
+	"icon" : 25px,
+	"logo" : 90px,
+	"image" : 100px
+);
+
+
+// Configuración general del body
+body {
+	font-family: Verdana;
+	margin: 0;
+	min-width: 300px;
+	background: linear-gradient(90deg, lightgrey 0%, transparent 25%, transparent 75%, lightgrey 100%);
+}
+
+
+// Bloque header
+.fondoheader{
+	background: linear-gradient(#b3b3b3, transparent);
+}
+.header {
+	display: flex;
+	width: 90%;
+	margin: 0px auto;
+	padding: 10px;
+	max-width: 1080px;
+
+	//Elementos dentro del header
+	&__img {
+		width: map-get($images, "logo");
+		margin-left: 5px;
+	}
+
+	&__h1 {
+		text-align: center;
+		margin: 5px auto;
+	}
+
+	&__lang {
+		float: right;
+		margin-bottom: -20px;
+
+		&__a{
+			position: relative;
+			text-decoration:none;
+			color: $negro;
+		}
+	}
+}
+
+
+// Bloque de menús de navegación
+.navlist {
+	list-style-type: none;
+	padding: 0;
+	text-align: center;
+	font-weight: bold;
+
+	// Elementos del menú
+	&__li {
+		display: inline;
+
+		&__a {
+			position: relative;
+			text-decoration: none;
+			margin: 5px 10px;
+		}
+	}
+
+	// Modificadores para cada menú
+	// Menu de navegación superior
+	&--blanco {
+		color: $negro;
+
+		&:hover{
+			background-color: $negro;
+			color: $blanco;			
+		}
+
+		&.selected:hover {
+			background-color: $blanco;
+			color: $negro;
+			cursor: default;
+		}
+	}
+
+	// Menú de redes sociales en el footer
+	&--rrss {
+
+		img {
+			width: map-get($images, "icon");
+			height: map-get($images, "icon");
+			margin: 0px -8px;
+
+			&:hover{
+				filter:invert(1);
+				transform: scale(1.2);			
+			}
+		}
+	}
+
+	// Menú del footer
+	&--negro {
+		display: inline-block;
+		background-color: $negro;
+		color: $blanco;
+		padding: 3px 0px;
+		font-size: 0.8em;
+		font-weight: normal;
+
+		&:hover{
+			background-color: $blanco;
+			color: $negro;			
+		}
+	}
+}
+
+// Efecto de subrayado del elemento seleccionado
+.selected:before {
+	content: "";
+	position: absolute;
+	background-color: $negro;
+	width: 100%;
+	height: 3px;
+	bottom: -3px;
+}
+
+// Bloque de la parte principal
+.main {
+	@include centrado;
+	max-width: 1200px;
+	padding: 1%;
+
+	// Elementos del main
+	&__img {
+		width: 100%;
+	}
+	
+	&__article {
+		@include centrado;
+		width: 90%;
+
+		&__texto {
+			font-size: 0.9em;
+			text-align: justify;
+			line-height: 20px;
+
+			// Modificadores de los textos del main
+			&--alumno {
+				margin: 10px 0px;
+			}
+
+			&--superior {
+				border-top: $borderojo;
+				border-bottom: $borderojo;
+				padding: 10px;
+				margin-top: 0;
+			}
+
+			&--video {
+				text-align: center;
+				font-size: 0.8em;
+				line-height: 1.2em;
+				margin: 5px 0 30px 0;
+			}
+
+			&--inferior {
+				margin-bottom: 5px;
+			}
+		}
+		
+		// Recuadro con la foto y descripción del autor
+		&__autor {
+			display: flex;
+			background-color: $rojoclaro;
+			padding: 10px 10px 20px 10px;
+
+			img {
+				width: map-get($images, "image");
+				height: map-get($images, "image");
+				border-radius: 50px;
+				margin-right: 10px;
+			}
+
+			p {
+				@include centrado;
+				font-size: 0.8em;
+				word-spacing: 5px;
+			}
+		}
+		
+		// Contenedor de vídeo
+		&__video-container {
+			position: relative;
+			padding-bottom: 56.25%; /* 16:9 */
+			height: 0;
+
+			iframe {
+				border: none;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+}
+
+// BLoque del footer
+.footer {
+	background-color: $negro;
+	color: $blanco;
+	text-align: center;
+	padding: 10px 10px 25px 10px;
+
+	// Elementos del footer
+	&__img{
+		width: map-get($images, "logo");
+	}
+
+	&__address{
+		p {
+			font-size: 0.8em;
+		}
+	}
+
+	p {
+		font-size: 0.7em;
+		margin: 5px 0px;
+	}
+}
+
+
+// TAREA 05
+
+.destacado {
+	@include centrado;
+	max-width: 1200px;
+	padding: 1%;
+	margin-bottom: 25px;
+
+	&__titulo {
+		text-align: center;
+	}
+
+	&__img {
+		width: 100%;
+	}
+}
+
+.contenido {
+	@include centrado;
+	position: relative;
+	max-width: 1200px;
+	padding: 0 1%;
+    text-align: center;
+	margin-bottom: 25px;
+	border: 3px solid black;
+    border-radius: 15px;
+    width: 95%;
+    background-color: lightgrey;
+
+	&__bloque {
+		display: inline-block;
+		width: 30%;
+		padding: 0 1%;
+		text-align: center;
+		margin: 25px 0;
+
+		&__img {
+			width: 100%;
+		}
+
+		&__texto {
+			font-size: 0.7em;
+			margin: 5px;
+		}
+	}
+
+	&__tarjeta {
+		margin: auto auto 40px;
+		background: linear-gradient(0deg, #505050, #272727, #272727, #505050);
+		border: 2px solid black;
+		border-radius: 5px;
+		padding: 15px;
+		width: 90%;
+		right: 0;
+		color: white;
+
+		&--titulo {
+			text-align: center;
+			margin: 15px auto 30px;
+		}
+
+		&--descripcion {
+			text-align: left;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		#html &--link{
+			background-color:orange;
+
+			&:hover {
+				background-color: black;
+				border-color: white;
+				color: orange;
+				transform: scale(1.1);
+			}
+		}
+
+		#css &--link{
+			background-color:dodgerblue;
+
+			&:hover {
+				background-color: black;
+				border-color: white;
+				color: dodgerblue;
+				transform: scale(1.1);
+			}
+		}
+
+		#js &--link{
+			background-color:limegreen;
+
+			&:hover {
+				background-color: black;
+				border-color: white;
+				color: limegreen;
+				transform: scale(1.1);
+			}
+		}
+		
+		&--link {
+			text-align: center;
+			color:black;
+			padding: 5px 3px;
+			border-radius: 15px;
+			border: 2px solid black;
+			width: 200px;
+			font-weight: bold;
+			margin:auto;
+		}
+	}
+}
+
+
+// Separador de bloques
+
+.separador {
+	background-color: rgba(0,0,0,0.5);
+	margin: auto;
+	width: 95%;
+	max-width: 1300px;
+	height: 2px;
+}
+
+
+//dado de 6 caras
+
+.d6{
+	width: 120px;
+	height: 120px;
+	margin: 50px auto;
+}
+
+.rotardado div {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+}
+
+.rotardado .cara1 {
+	@include caradado;
+	background-color:sandybrown;
+	background-image: url(/images/HTML.png);
+    -webkit-transform: translateZ(50px);
+    -moz-transform: translateZ(50px);
+    -ms-transform: translateZ(50px);
+    transform: translateZ(50px);
+}
+.rotardado .cara2 {
+	@include caradado;
+	background-color:lightblue;
+	background-image: url(/images/CSS.png);
+    -webkit-transform: rotateY(90deg) translateZ(50px);
+    -moz-transform: rotateY(90deg) translateZ(50px);
+    -ms-transform: rotateY(90deg) translateZ(50px);
+    transform: rotateY(90deg) translateZ(50px);
+}
+.rotardado .cara3 {
+	@include caradado;
+	background-color:lightgreen;
+	background-image: url(/images/JS.png);
+    -webkit-transform: rotateY(90deg) rotateX(90deg) translateZ(50px);
+    -moz-transform: rotateY(90deg) rotateX(90deg) translateZ(50px);
+    -ms-transform: rotateY(90deg) rotateX(90deg) translateZ(50px);
+    transform: rotateY(90deg) rotateX(90deg) translateZ(50px);
+}
+.rotardado .cara4 {
+	@include caradado;
+	background-color:lightgreen;
+	background-image: url(/images/JS.png);
+    -webkit-transform: rotateX(-90deg) translateZ(50px);
+    -moz-transform: rotateX(-90deg) translateZ(50px);
+    -ms-transform: rotateX(-90deg) translateZ(50px);
+    transform: rotateX(-90deg) translateZ(50px);
+}
+.rotardado .cara5 {
+	@include caradado;
+	background-color:lightblue;
+	background-image: url(/images/CSS.png);
+    -webkit-transform: rotateY(-90deg) rotateZ(90deg) translateZ(50px);
+    -moz-transform: rotateY(-90deg) rotateZ(90deg) translateZ(50px);
+    -ms-transform: rotateY(-90deg) rotateZ(90deg) translateZ(50px);
+    transform: rotateY(-90deg) rotateZ(90deg) translateZ(50px);
+}
+.rotardado .cara6 {
+	@include caradado;
+	background-color:sandybrown;
+	background-image: url(/images/HTML.png);
+    -webkit-transform: rotateY(180deg) rotateZ(90deg) translateZ(50px);
+    -moz-transform: rotateY(180deg) rotateZ(90deg) translateZ(50px);
+    -ms-transform: rotateY(180deg) rotateZ(90deg) translateZ(50px);
+    transform: rotateY(180deg) rotateZ(90deg) translateZ(50px);
+}
+
+.btnanimacion {
+	position: absolute;
+    bottom: 1%;
+    width: 100%;
+    text-align: center;
+
+	input {
+		padding: 5px;
+	}
+}
+
+.nodado{
+	width: 80%;
+	margin: auto;
+	display: flex; 
+
+	.lenguajes {
+		margin: auto;
+		cursor: pointer;
+
+		&__img{
+			width: 75px;
+    margin: 5px;
+		}
+	}
+}
+
+
+// Breakpoints de la página
+@media (min-width: 1242px) {
+	.animacion{
+
+		&__1 {
+			height: 401px !important;
+			width: 206px !important;
+			top: -88px !important;
+			left: 770px !important;
+
+			&__pantalla {
+				
+				p {
+				font-size: 18.6px !important;
+				/*font-size: 1.165em;*/
+
+					&:first-child {
+						font-size: 24.9px !important;
+					}
+				}
+				
+				.divbtn {
+					
+					input {
+						font-size: 21px !important;
+						padding: 6.3px 10px !important;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 830px) {
+	// Modifica la anchura del título
+	.header {
+
+		&__h1 {
+			width: 270px;
+		}
+	}
+
+
+	// TAREA 05
+
+	.contenido {
+		text-align: unset;
+
+		&__bloque {
+			width: 45%;
+		}
+	}
+}
+
+@media (max-width: 600px) {
+	//Modifica el menú superior para que sea vertical
+	.navlist {
+
+		&--vertical{
+			display: block !important;
+			margin: 10px 0px;
+		}
+
+		&--blanco {
+
+			&:hover{
+				display: block;			
+			}
+
+			&.selected:hover {
+				display: unset;
+			}
+		}
+	}
+
+}
+
+@media (max-width: 480px) {
+	// Modifica la disposición de los elementos del header
+	.header {
+		display: block;
+		text-align: center;
+		height: 200px;
+
+		&__img {
+			transform: translate(0px, 115px);		
+		}
+	
+		&__h1 {
+			transform: translate(0px, -50px);
+			font-size: 1.7em;
+			width: unset;
+			height: 66px;
+		}
+	
+		&__lang {
+			float: unset;
+			margin-bottom: unset;
+			transform: translate(0px, -150px);
+		}
+	}
+
+	// Modifica la disposición de los elementos del autor
+	.main{
+		&__article {
+			&__autor {
+				display: block;
+				text-align: center;
+			}
+		}
+	}
+
+
+	// TAREA 05
+
+	.contenido {
+
+		&__bloque {
+			display: block;
+			width: 95%;
+			margin: 40px auto;
+		}
+	}
+
+	.pantallanegra, .animacion__1 {
+		display:none;
+	}
+	
+	.mano {
+		display: none;
+
+		&__img {
+			display: none;
+		}
+	}
+}
+
+
+
+.cerrado {
+	display: none;
+}
+.animacion{
+	position: relative;
+	perspective: 2200px;
+
+	.pantallanegra:before {
+		position: absolute;
+		content:'';
+		background-color: black;
+		height: 116%;
+		width: 17.2%;
+		top: -25.4%;
+		left: 64.2%;
+		transform-style: preserve-3d;
+		transform: rotateX(41deg) rotateY(4deg) rotateZ(-93.3deg) skew(1deg, 0deg);
+	}
+
+	.mano {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		overflow: hidden;
+
+		&__img {
+			position: absolute;
+			width: 15%;
+			top: 0%;
+			left: 100%;
+		}
+	}
+
+	&__1{
+		position: absolute;
+		background-image: url(/images/daibutsu.jpg);
+		background-size: cover;
+		background-position-x: center;
+		z-index: 1;
+		height: 116%;
+		width: 17.2%;
+		top: -25.4%;
+		left: 64.2%;
+		transform-style: preserve-3d;
+		transform: rotateX(41deg) rotateY(4deg) rotateZ(-93.3deg) skew(1deg, 0deg);
+
+		&__pantalla {
+			position:relative;
+
+			p {
+				font-size: 1.5vw;
+				font-weight: bold;
+				text-align: center;
+				color: white;
+				text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
+				&:first-child {
+					font-size: 2vw;
+				}
+			}
+
+			.divbtn {
+				text-align: center;
+
+				input {
+					font-size: 1.7vw;
+					background-color: darkblue;
+					color: white;
+					border-radius: 15px;
+					padding: 3% 5%;
+					cursor: pointer;
+					
+
+					&:hover {
+						background-color: lightsteelblue;
+						color: black;
+						font-weight: bold;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+// ANIMACIONES
+
+// Mano que pulsa botón del móvil
+@keyframes animarmano {
+	0% {left: 100%; top: 0%;}
+	50% {left: 89%; top: 8%; transform: rotate(-15deg);}
+	90% {left:100%; top: -5%; transform: rotate(0deg);}
+	100% {display:none;}
+}
+
+.animarmano {
+	animation-name: animarmano;
+	animation-duration: 4s;
+	animation-timing-function: ease;
+}
+
+
+// Aparece la pantalla de bloqueo
+@keyframes  encender {
+	0% {opacity: 0;}
+	98% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+.encender {
+	animation-name: encender;
+	animation-duration: 2s;
+}
+
+
+// Aparece en texto de la pantalla de bloqueo
+@keyframes aparecetexto {
+	0% {transform: scale(0.0);}
+	45% {transform: scale(0.0);}
+	100% {transform: scale(1);}
+}
+
+.aparecetexto {
+	animation-name: aparecetexto;
+	animation-duration: 4s;
+}
+
+
+// Desaparece la pantalla de bloqueo
+@keyframes quitarpantalla {
+	0% {opacity:1;}
+	49% {opacity:0;display:block;}
+	50% {display:none;}
+	100% {display:none;}
+}
+
+.quitarpantalla {
+	animation-name: quitarpantalla;
+	animation-duration: 4s;
+}
+
+
+// Movimiento del dado
+@-webkit-keyframes moverdado {
+    0%	 { -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+    66%  { -webkit-transform: rotateX(180deg) rotateY(120deg) rotateZ(240deg); }
+    83%  { -webkit-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+}
+
+@keyframes moverdado {
+    0% {
+		-moz-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+		-ms-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+		transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+	}
+	50% {
+		-moz-transform: rotateX(180deg) rotateY(120deg) rotateZ(240deg);
+		-ms-transform: rotateX(180deg) rotateY(120deg) rotateZ(240deg);
+		transform: rotateX(180deg) rotateY(120deg) rotateZ(240deg);
+	}
+	100% {
+		-moz-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+		-ms-transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+		transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+	}
+}
+
+.rotardado {
+    -webkit-animation-name: moverdado;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 12s;
+
+    animation-name: moverdado;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 12s;
+
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+    -webkit-transform-origin: 50px 50px 0;
+    -moz-transform-origin: 50px 50px 0;
+    -ms-transform-origin: 50px 50px 0;
+    transform-origin: 50px 50px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* TAREA 08 */
+
+/*CSS general*/
+.tarea08 {
+	min-width: 300px;
+	font-family: Verdana;
+	color: purple;
+	margin: 0;
+}
+  
+.titulo {
+	text-align: center;
+	width: 90%;
+	margin: 40px auto;
+}
+  
+.main {
+	width: 90%;
+	max-width: 900px;
+	margin: auto;
+}
+
+#formulario {
+	margin-top: 70px;
+}
+
+fieldset {
+	width: 90%;
+	margin: 25px auto 30px;
+	border: 2px solid;
+	border-radius: 3px;
+}
+  
+legend {
+	font-size: 1.3em;
+	font-weight: bold;
+	border: 2px solid purple;
+	border-radius: 3px;
+	padding: 5px;
+	background-color: white;
+}
+  
+label {
+	font-size: 1.1em;
+	margin-bottom: 10px;
+}
+  
+#conf {
+	display: none;
+}
+  
+.asterisco {
+	color: crimson;
+	font-weight: bold;
+}
+  
+.navTeclado {
+	text-align: center;
+	font-size: 0.8em;
+	cursor: pointer;
+}
+
+.ayudaSticky {
+	position: sticky;
+    top: -8px;
+    float: right;
+    z-index: 5;
+    margin: 0 0 10px 0;
+    padding: 0px 10px;    
+	border: 1px solid purple;
+    border-radius: 10px;
+    background: whitesmoke;
+    font-weight: bold;
+}
+
+#ayuda {
+	position: fixed;
+	background-color: #eaeaea;
+	border: 3px solid purple;
+	border-radius: 10px;
+	color: black;
+	width: 230px;
+	cursor: move;
+	text-align: left;
+	font-size: 0.7em;
+	z-index: 6;
+	right: 1%;
+	top: 5%;
+	padding-left: 3px;
+}
+  
+#ayuda p:first-child {
+	font-weight: bold;
+	text-align: center;
+}
+  
+#cerrarAyuda {
+	position: absolute;
+	top: -3%;
+	right: 5%;
+	font-size: 1.3em;
+	font-weight: bold;
+	cursor: pointer;
+}
+  
+.oculto {
+	visibility: hidden;
+}
+  
+.cerrado {
+	display: none;
+}
+  
+  
+/*Fieldset de datos personales*/
+  
+.datos {
+	margin: 15px 2%;
+}
+  
+.datos input{
+	color: purple;
+	height: 40px;
+	width: 100%;
+	font-size: 0.9em;
+}
+  
+.datos label{
+	display: block;
+	margin-top: 10px;
+}
+  
+.datos div {
+	position: relative;
+	width: 45%;
+	margin: 10px 2%;
+	display: inline-block;
+}
+  
+.datos div:last-child {
+	width: 95%;
+	margin: 0 2% 10px;
+}
+  
+.datos div:last-child label {
+	margin: 20px 0 10px;
+}
+  
+.datos div:last-child input {
+	width: 100%;
+	padding: 10px 0 0 1%;
+	border: 1px solid #757575;
+	border-radius: 2px;
+	background-color: white;
+}
+  
+  
+/*Fieldset de perfil de participante*/
+.perfil {
+	margin: 15px 2%;
+}
+  
+.perfil label {
+	display: block;
+	margin-top: 30px;
+	margin-right: 40px;
+}
+  
+.perfil div {
+	margin: 15px 0;
+}
+  
+.interes {
+	position: relative;
+}
+  
+.interes p {
+	font-size: 0.8em;
+	margin: 3px 0 10px;
+	text-align: left;
+	color: purple;
+}
+  
+.interes p:last-child {
+	font-size: 0.8em;
+	text-align: right;
+	margin: 0px 2px;
+	color: crimson;
+}
+  
+.interes textarea {
+	color: purple;
+	width: 99%;
+	resize: vertical;
+	font-size: 1.3em;
+	line-height: 1.3em;
+}
+  
+#profesion {
+	padding: 8px;
+	font-size: 0.9em;
+	color: purple;
+}
+  
+.talleres p, .profesion p {
+	font-size: 0.8em;
+	margin: 3px 0 10px;
+}
+  
+#talleres {
+	padding: 5px;
+	overflow: hidden;
+	font-size: 0.9em;
+	color: purple;
+}
+  
+#talleres option {
+	padding: 5px;
+}
+  
+.asistencia p {
+	font-size: 1.1em;
+	margin: 30px 0 10px;
+}
+  
+.asistencia label {
+	display: unset;
+	cursor: pointer;
+}
+  
+.opcion {
+	margin: 5px 0 !important;
+}
+  
+.opcion label {
+	font-size: 0.9em;
+	margin: 0;
+}
+  
+/*aviso legal y boton enviar*/
+  
+.legal, .submit {
+	text-align: center;
+	margin: 0 0 30px;
+}
+  
+#legal {
+	height: 20px;
+	width: 20px;
+	transform: translateY(3px);
+}
+  
+.submit input {
+	font-size: 1.1em;
+	text-transform: uppercase;
+	padding: 16px 25px;
+	background-color: gold;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin: 0 30px;
+}
+  
+.submit div {
+	display: inline-block;
+}
+  
+  
+/* Interactividad */
+  
+input:focus, textarea:focus, select:focus {
+	background-color: #f1f1f1 !important;
+}
+  
+fieldset:hover, fieldset:focus-within {
+	background-color: rgba(230,230,250,0.3);
+}
+  
+fieldset:hover legend, fieldset:focus-within legend {
+	background-color: rgba(255,240,245,0.5);
+}
+  
+.submit input:hover {
+	background-color: black;
+	color: gold;
+	border: 2px solid gold;
+	font-weight: bold;
+	padding: 14px 22.5px;
+}
+  
+.submit input:focus {
+	border: 2px solid ;
+	background-color: gold !important;
+	padding: 14px 22.5px;
+}
+  
+.tooltip {
+	position: relative;
+}
+  
+.tooltip .tooltiptext {
+	position: absolute;
+	visibility: hidden;
+	width: 100%;
+	background-color: #555;
+	color: #fff;
+	font-size: 0.8em;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 5px;
+	z-index: 1;
+	top: 105%;
+	opacity: 0;
+	transition: opacity 0.5s;
+}
+  
+.tooltip .tooltiptext::after {
+	content: "";
+	position: absolute;
+	bottom: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent transparent #555 transparent;
+}
+  
+.tooltip:hover .tooltiptext {
+	visibility: visible;
+	opacity: 0.9;
+}
+  
+.tooltip:active .tooltiptext {
+	visibility: visible;
+	opacity: 0.9;
+}
+  
+.supnum {
+	color:black;
+	font-size: 0.7em;
+}
+  
+.supnum.btn {    
+	display: block;
+	margin: 10px;
+}
+  
+.tecla {
+	border: 1px solid black;
+	padding: 1px 5px; 
+}
+  
+.teclaMic {
+	font-family: Verdana;
+	font-size: 0.7em;
+	margin-left: 5px;
+}
+  
+#legal, #d4y5, #d4, #d5, #profesion, #talleres {
+	cursor: pointer;
+}
+  
+#talleres option:hover {
+	background-color: lightgrey;
+}
+  
+.asistencia input:hover + label{
+	text-decoration: underline;
+}
+  
+.asistencia input:focus + label{
+	text-decoration: underline;
+}
+  
+.asistencia label:hover {
+	text-decoration: underline;
+}
+  
+#mic1, #mic2, #mic3, #mic4 {
+	position: absolute;
+	font-size: 1.7em;
+	cursor: pointer;
+	right: 0;
+	bottom: 9%;
+}
+  
+#mic5 {
+	position: absolute;
+	font-size: 1.7em;
+	cursor: pointer;
+	right: 0;
+	top: 0;
+}
+  
+.fa-microphone-slash {
+	color: red;
+}
+  
+.fa-microphone {
+	color: green;
+}
+  
+.grabando::after {
+	content: "";
+	position: absolute;
+	height: 15px;
+	width: 15px;
+	left: 100%;
+	bottom: 100%;
+	background-color: red;
+	border-radius: 50px;
+	animation: blink 0.8s linear infinite;
+}
+  
+@keyframes blink{
+	0%{opacity: 1;}
+	50%{opacity: 1;}
+	51%{opacity: 0;}
+	100%{opacity: 0;}
+}
+  
+/* Confirmación */
+  
+.conf {
+	max-width: 600px;
+	border: 2px solid black;
+	border-radius: 10px;
+	margin: 50px auto;
+}
+  
+.conf h2 {
+	text-align: center;
+	background-color: black;
+	color: white;
+	border-radius: 9px 9px 0 0;
+	margin: -2px;
+	padding: 12px 0;
+}
+  
+.conf ul {
+	line-height: 2em;
+}
+  	
+.conf li {
+	line-height: 1.3em;
+	font-weight: bold;
+	margin: 20px 0;
+}
+
+.conf li span {
+	font-weight: normal;
+	color: black;
+	overflow-wrap: break-word;
+}
+  
+  
+#volver {
+	margin-top: 15px;
+}
+  
+  
+/* Validaciones */
+  
+.validaciones {
+	display: flex;
+}
+
+.validaciones a {
+	margin: 0 5px;
+}
+  
+  
+/* Enviado */
+  
+.formenviado {
+	text-align: center;
+	color: green;
+	margin: 50px 0 80px;
+}
+  
+/* Responsive */
+  
+@media (max-width: 480px) {
+	.datos div {
+	  width: 97%;
+	}
+}
