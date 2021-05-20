@@ -520,6 +520,10 @@ body {
     display: none;
   }
 }
+.oculto {
+  visibility: hidden;
+}
+
 .cerrado {
   display: none;
 }
@@ -726,73 +730,38 @@ body {
   color: purple;
   margin: 0;
 }
-
-.titulo {
-  text-align: center;
-  width: 90%;
-  margin: 40px auto;
+.tarea08 .asterisco {
+  color: crimson;
+  font-weight: bold;
 }
-
-.main {
+.tarea08 .main {
   width: 90%;
   max-width: 900px;
   margin: auto;
 }
-
-#formulario {
-  margin-top: 70px;
-}
-
-fieldset {
-  width: 90%;
-  margin: 25px auto 30px;
-  border: 2px solid;
-  border-radius: 3px;
-}
-
-legend {
-  font-size: 1.3em;
-  font-weight: bold;
-  border: 2px solid purple;
-  border-radius: 3px;
-  padding: 5px;
-  background-color: white;
-}
-
-label {
-  font-size: 1.1em;
-  margin-bottom: 10px;
-}
-
-#conf {
-  display: none;
-}
-
-.asterisco {
-  color: crimson;
-  font-weight: bold;
-}
-
-.navTeclado {
+.tarea08 .main .titulo {
   text-align: center;
-  font-size: 0.8em;
-  cursor: pointer;
+  width: 90%;
+  margin: 40px auto;
 }
-
-.ayudaSticky {
+.tarea08 .main .ayudaSticky {
   position: sticky;
+  cursor: pointer;
   top: -8px;
   float: right;
   z-index: 5;
   margin: -20px 0 10px 0;
   padding: 0px 10px;
-  border: 1px solid purple;
+  border: 2px solid purple;
   border-radius: 10px;
   background: whitesmoke;
   font-weight: bold;
 }
-
-#ayuda {
+.tarea08 .main .ayudaSticky .navTeclado {
+  text-align: center;
+  font-size: 0.8em;
+}
+.tarea08 .main #ayuda {
   position: fixed;
   background-color: #eaeaea;
   border: 3px solid purple;
@@ -807,13 +776,11 @@ label {
   top: 35%;
   padding-left: 3px;
 }
-
-#ayuda p:first-child {
+.tarea08 .main #ayuda p:first-child {
   font-weight: bold;
   text-align: center;
 }
-
-#cerrarAyuda {
+.tarea08 .main #ayuda #cerrarAyuda {
   position: absolute;
   top: -3%;
   right: 5%;
@@ -821,12 +788,28 @@ label {
   font-weight: bold;
   cursor: pointer;
 }
-
-.oculto {
-  visibility: hidden;
+.tarea08 .main #formulario {
+  margin-top: 70px;
 }
-
-.cerrado {
+.tarea08 .main #formulario fieldset {
+  width: 90%;
+  margin: 25px auto 30px;
+  border: 2px solid;
+  border-radius: 3px;
+}
+.tarea08 .main #formulario legend {
+  font-size: 1.3em;
+  font-weight: bold;
+  border: 2px solid purple;
+  border-radius: 3px;
+  padding: 5px;
+  background-color: white;
+}
+.tarea08 .main #formulario label {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+.tarea08 .main #formulario #conf {
   display: none;
 }
 
@@ -834,35 +817,29 @@ label {
 .datos {
   margin: 15px 2%;
 }
-
 .datos input {
   color: purple;
   height: 40px;
   width: 100%;
   font-size: 0.9em;
 }
-
 .datos label {
   display: block;
   margin-top: 10px;
 }
-
 .datos div {
   position: relative;
   width: 45%;
   margin: 10px 2%;
   display: inline-block;
 }
-
 .datos div:last-child {
   width: 95%;
   margin: 0 2% 10px;
 }
-
 .datos div:last-child label {
   margin: 20px 0 10px;
 }
-
 .datos div:last-child input {
   width: 100%;
   padding: 10px 0 0 1%;
@@ -875,13 +852,11 @@ label {
 .perfil {
   margin: 15px 2%;
 }
-
 .perfil label {
   display: block;
   margin-top: 30px;
   margin-right: 40px;
 }
-
 .perfil div {
   margin: 15px 0;
 }
@@ -889,21 +864,18 @@ label {
 .interes {
   position: relative;
 }
-
 .interes p {
   font-size: 0.8em;
   margin: 3px 0 10px;
   text-align: left;
   color: purple;
 }
-
 .interes p:last-child {
   font-size: 0.8em;
   text-align: right;
   margin: 0px 2px;
   color: crimson;
 }
-
 .interes textarea {
   color: purple;
   width: 99%;
@@ -929,7 +901,6 @@ label {
   font-size: 0.9em;
   color: purple;
 }
-
 #talleres option {
   padding: 5px;
 }
@@ -938,7 +909,6 @@ label {
   font-size: 1.1em;
   margin: 30px 0 10px;
 }
-
 .asistencia label {
   display: unset;
   cursor: pointer;
@@ -947,9 +917,8 @@ label {
 .opcion {
   margin: 5px 0 !important;
 }
-
 .opcion label {
-  font-size: 0.9em;
+  font-size: 0.9em !important;
   margin: 0;
 }
 
@@ -975,7 +944,6 @@ label {
   cursor: pointer;
   margin: 0 30px;
 }
-
 .submit div {
   display: inline-block;
 }
@@ -993,6 +961,12 @@ fieldset:hover legend, fieldset:focus-within legend {
   background-color: rgba(255, 240, 245, 0.5);
 }
 
+.tarea08 .main .ayudaSticky:hover {
+  background: purple;
+  border: 2px solid black;
+  color: white;
+}
+
 .submit input:hover {
   background-color: black;
   color: gold;
@@ -1000,7 +974,6 @@ fieldset:hover legend, fieldset:focus-within legend {
   font-weight: bold;
   padding: 14px 22.5px;
 }
-
 .submit input:focus {
   border: 2px solid;
   background-color: gold !important;
@@ -1010,7 +983,6 @@ fieldset:hover legend, fieldset:focus-within legend {
 .tooltip {
   position: relative;
 }
-
 .tooltip .tooltiptext {
   position: absolute;
   visibility: hidden;
@@ -1026,7 +998,6 @@ fieldset:hover legend, fieldset:focus-within legend {
   opacity: 0;
   transition: opacity 0.5s;
 }
-
 .tooltip .tooltiptext::after {
   content: "";
   position: absolute;
@@ -1037,12 +1008,10 @@ fieldset:hover legend, fieldset:focus-within legend {
   border-style: solid;
   border-color: transparent transparent #555 transparent;
 }
-
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 0.9;
 }
-
 .tooltip:active .tooltiptext {
   visibility: visible;
   opacity: 0.9;
@@ -1052,7 +1021,6 @@ fieldset:hover legend, fieldset:focus-within legend {
   color: black;
   font-size: 0.7em;
 }
-
 .supnum.btn {
   display: block;
   margin: 10px;
@@ -1080,11 +1048,9 @@ fieldset:hover legend, fieldset:focus-within legend {
 .asistencia input:hover + label {
   text-decoration: underline;
 }
-
 .asistencia input:focus + label {
   text-decoration: underline;
 }
-
 .asistencia label:hover {
   text-decoration: underline;
 }
@@ -1146,7 +1112,6 @@ fieldset:hover legend, fieldset:focus-within legend {
   border-radius: 10px;
   margin: 90px auto 20px;
 }
-
 .conf h2 {
   text-align: center;
   background-color: black;
@@ -1155,17 +1120,14 @@ fieldset:hover legend, fieldset:focus-within legend {
   margin: -2px;
   padding: 12px 0;
 }
-
 .conf ul {
   line-height: 2em;
 }
-
 .conf li {
   line-height: 1.3em;
   font-weight: bold;
   margin: 20px 0;
 }
-
 .conf li span {
   font-weight: normal;
   color: black;
@@ -1180,7 +1142,6 @@ fieldset:hover legend, fieldset:focus-within legend {
 .validaciones {
   display: flex;
 }
-
 .validaciones a {
   margin: 0 5px;
 }

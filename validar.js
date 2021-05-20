@@ -31,8 +31,7 @@ function iniciar() {
     crearEvento(document.getElementById("interes"),"keydown",longitud);
     crearEvento(document.getElementById("interes"),"keyup",longitud);
     crearEvento(document.getElementsByTagName("body")[0],"keydown",navegar);
-    crearEvento(document.getElementById("navTeclado"),"click",abrirAyuda);
-    crearEvento(document.getElementById("navTeclado2"),"click",cerrarAyuda);
+    crearEvento(document.getElementById("ayudaSticky"),"click",queAyuda);
     crearEvento(document.getElementById("cerrarAyuda"),"click",cerrarAyuda);
     crearEvento(document.getElementById("mic1"),"click",runSpeechRecognition);
     crearEvento(document.getElementById("mic2"),"click",runSpeechRecognition);
@@ -257,6 +256,15 @@ function navegar(event){
 
 }
 
+function queAyuda(){
+    if (document.getElementById("navTeclado").classList.contains("cerrado")){
+        cerrarAyuda();
+    }
+    else {
+        abrirAyuda();
+    }
+}
+
 function cerrarAyuda(){
     document.getElementById("ayuda").classList.add("oculto");
 
@@ -302,7 +310,7 @@ function abrirAyuda(){
 
     document.getElementById("ayuda").style.right = "1%";
     document.getElementById("ayuda").style.left = "unset";
-    document.getElementById("ayuda").style.top = "35%";
+    document.getElementById("ayuda").style.top = "35%;";
 
     let sups = document.getElementsByClassName("supnum");
     for (let i = 0; i < sups.length; i++) {
