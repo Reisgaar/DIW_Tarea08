@@ -1349,13 +1349,13 @@ fieldset:hover legend, fieldset:focus-within legend {
 	.datos div {
 	  width: 97%;
 	}
-	.main{
+	.tarea08 .main{
 		& .imgJornadas1 {
-			display: block;
+			display: none;
 		}
 
 		& .imgJornadas2 {
-			display: none;
+			display: block;
 		}
 	}
 }

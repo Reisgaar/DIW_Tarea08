@@ -1165,11 +1165,11 @@ fieldset:hover legend, fieldset:focus-within legend {
     width: 97%;
   }
 
-  .main .imgJornadas1 {
-    display: block;
-  }
-  .main .imgJornadas2 {
+  .tarea08 .main .imgJornadas1 {
     display: none;
+  }
+  .tarea08 .main .imgJornadas2 {
+    display: block;
   }
 }
 
