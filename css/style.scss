@@ -862,6 +862,14 @@ body {
 		max-width: 900px;
 		margin: auto;
 
+		& .imgJornadas1 {
+			display: block;
+		}
+
+		& .imgJornadas2 {
+			display: none;
+		}
+
 		& .titulo {
 			text-align: center;
 			width: 90%;
@@ -1340,5 +1348,14 @@ fieldset:hover legend, fieldset:focus-within legend {
 @media (max-width: 480px) {
 	.datos div {
 	  width: 97%;
+	}
+	.main{
+		& .imgJornadas1 {
+			display: block;
+		}
+
+		& .imgJornadas2 {
+			display: none;
+		}
 	}
 }

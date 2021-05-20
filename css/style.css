@@ -739,6 +739,12 @@ body {
   max-width: 900px;
   margin: auto;
 }
+.tarea08 .main .imgJornadas1 {
+  display: block;
+}
+.tarea08 .main .imgJornadas2 {
+  display: none;
+}
 .tarea08 .main .titulo {
   text-align: center;
   width: 90%;
@@ -1157,6 +1163,13 @@ fieldset:hover legend, fieldset:focus-within legend {
 @media (max-width: 480px) {
   .datos div {
     width: 97%;
+  }
+
+  .main .imgJornadas1 {
+    display: block;
+  }
+  .main .imgJornadas2 {
+    display: none;
   }
 }
 
