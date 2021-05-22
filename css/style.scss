@@ -1130,7 +1130,7 @@ fieldset:hover, fieldset:focus-within {
 }
   
 fieldset:hover legend, fieldset:focus-within legend {
-	background-color: rgba(255,240,245,0.5);
+	background-color: rgba(255,240,245,0.5) !important;
 }
 
 .tarea08 .main .ayudaSticky:hover {
